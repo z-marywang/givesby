@@ -1,0 +1,28 @@
+{
+    "name": "SpendNShare",
+    "description": "An extension to help you maximize donations when you shop!",
+    "version": "0.1.0",
+    "manifest_version": 2,
+    "options_ui": {
+      "page": "options.html",
+      "open_in_tab": true
+    },
+    "minimum_chrome_version": "46",
+    "content_scripts": [
+      {
+        "matches": ["http://*/*"],
+        "js": ["content.js"]
+      },
+      {
+        "matches": ["https://*/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "browser_action": {
+      "default_title": "SpendnShare"
+    },
+    "background": {
+      "scripts": ["background.js"]
+    },
+    "permissions": ["storage"]
+  }
