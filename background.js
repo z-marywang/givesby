@@ -4,6 +4,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request != null) {
       window.domain = request;
       console.log(window.domain);
+      // sendResponse({url: });
     }
   });
 
