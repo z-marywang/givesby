@@ -86,12 +86,26 @@ function show_amazon_popup() {
     // chrome.tabs.create({url: "popup.html"});
 
     // chrome.runtime.sendMessage("Amazon");
-    document.body.innerHTML += '<dialog>This is a dialog.<br><button>Close</button></dialog>';
+
+    const css_url = chrome.runtime.getURL('./styles.css')
+
+    fetch(css_url)
+    .then(response => response.text())
+    .then(text => document.head.innerHTML += '<style>' + text + '</style>');
+
+    const url = chrome.runtime.getURL("./dialog.html")
+
+    fetch(url)
+    .then(response => response.text())
+    .then(html => {
+        document.body.innerHTML += html;
         var dialog = document.querySelector("dialog")
         dialog.querySelector("button").addEventListener("click", function() {
             dialog.close()
         })
         dialog.showModal()
+    });
+    
 }
 
 // Show other popup

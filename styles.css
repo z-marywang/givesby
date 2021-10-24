@@ -1,0 +1,49 @@
+.header {
+    font-size: 20px;
+    margin: 14px;
+}
+
+.normal{
+    font-size: 14px;
+    margin:  14px;
+}
+
+.dialog_mine {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    left: unset;
+    bottom: unset;
+    margin: unset;
+    border-width: 0px;
+    border-style: unset;
+    border-radius: 4px;
+    padding: 0px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.smile_button {
+border-width:  unset;
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+  border-radius: 4px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  transition-duration: 0.4s;
+}
+
+.smile_button:hover {
+  background-color: #7ddb82;
+}
+
+.smile_button:select {
+  border-color: #4CAF50;
+}
+
+.button_container {
+    text-align: center;
+}
