@@ -103,10 +103,9 @@ function process_matches(current_domain_stripped, matches, partners) {
         let price = getHighestPrice(); // TODO: ADD TO DIALOG
         console.log()
         if (matches.includes("Amazon")) {
-            console.log("popup ples")
-            show_amazon_popup();
+            show_amazon_popup(price);
         } else {
-            show_general_popup(matches);
+            show_general_popup(matches, price);
         }
     }
 
@@ -114,12 +113,13 @@ function process_matches(current_domain_stripped, matches, partners) {
 }
 
 // Amazon popup
-function show_amazon_popup() {
+function show_amazon_popup(price) {
     // TODO: make custom popup
     // alert("Amazon bad");
     // chrome.tabs.create({url: "popup.html"});
 
     // chrome.runtime.sendMessage("Amazon");
+    console.log(price);
 
     const css_url = chrome.runtime.getURL('./styles.css')
     const url = chrome.runtime.getURL("./dialog.html")
@@ -132,10 +132,15 @@ function show_amazon_popup() {
         .then(response => response.text())
         .then(html => {
             document.body.innerHTML += html;
-            var dialog = document.querySelector("dialog")
+            var dialog = document.querySelector("dialog");
+            if (price != null) {
+                console.log("try");
+                price_text = document.getElementById("price_line");
+                price_text.innerHTML = "and donate up to $" + (price/40).toFixed(2) + " at no cost!";
+            }
             smileButton = document.getElementsByClassName("smile_button")[0];
-            newurl = window.location.href.replace('//www.', '//smile.')
-            smileButton.setAttribute('onclick', "window.location='"+newurl+"';")
+            newurl = window.location.href.replace('//www.', '//smile.');
+            smileButton.setAttribute('onclick', "window.location='"+newurl+"';");
             dialog.querySelector("button").addEventListener("click", function() {
                 dialog.close();
                 document.getElementById("the_dialog").remove();
@@ -143,10 +148,11 @@ function show_amazon_popup() {
             dialog.showModal()
         });
     });    
+    
 }
 
 // Show other popup
-function show_general_popup(sites) {
+function show_general_popup(sites, price) {
     const css_url = chrome.runtime.getURL('./styles.css')
     const url = chrome.runtime.getURL("./general_dialog.html")
 
@@ -161,6 +167,10 @@ function show_general_popup(sites) {
         .then(html => {
             document.body.innerHTML += html;
             var dialog = document.querySelector("dialog");
+            if (price != null) {
+                price_text = document.getElementById("price_line");
+                price_text.innerHTML = "and donate up to $" + price.toFixed(2) + " while shopping!";
+            }
             if (!sites.includes("GivingAssistant")) {
                 document.getElementById("giving assistant").remove();
             }

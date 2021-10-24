@@ -1,5 +1,5 @@
 {
-    "name": "SpendNShare",
+    "name": "givesby",
     "description": "An extension to help you maximize donations when you shop!",
     "version": "0.2.0",
     "manifest_version": 2,
@@ -24,7 +24,7 @@
       }
     ],
     "browser_action": {
-      "default_title": "SpendNShare",
+      "default_title": "givesby",
       "default_icon": "graphics/logo.png"
     },
     "background": {
