@@ -1,5 +1,5 @@
 // check if the current domain merits generating an alert
-function check_domain(current_domain, last_domain) {
+async function check_domain(current_domain_stripped, current_domain, last_domain, partners) {
     console.log("Comparing " + current_domain + " and " + last_domain);
     if (current_domain == last_domain) {
         console.log("Same domain!")
@@ -24,19 +24,18 @@ function check_domain(current_domain, last_domain) {
        return response.json();
     }).then(
         urls_json => {
-            if (urls_json.hasOwnProperty(current_domain)) {
+            console.log(urls_json);
+            console.log(current_domain_stripped);
+            if (urls_json.hasOwnProperty(current_domain_stripped)) {
                 console.log("url match!");
-                let matches = urls_json[current_domain];
+                let matches = urls_json[current_domain_stripped];
                 console.log(matches);
-                return matches;
+                process_matches(current_domain_stripped, matches, partners)
+                // return matches;
             } else {
                 console.log("no url match")
             }
         });
-
-    console.log("the end is nigh");
-    
-    return null;
 }
 
 // returns the highest price found on the page. Only works with $
@@ -60,10 +59,11 @@ function getHighestPrice() {
 // returns the last visited domain
 async function get_last_domain() {
     chrome.storage.local.get({
-        domain: ""
+        domain: "",
+        partners: {"Amazon": true, "Altruisto": true, "GivingAssistant": true, "GoodShop": true}
     }, function(items) {
         console.log("got last domain as " + items.domain);
-        process_get_result(items.domain);
+        process_get_result(items.domain, items.partners);
     });
 }
 
@@ -76,23 +76,36 @@ async function set_last_domain(new_domain) {
     });
 }
 
+// checks if any of the partners for a site are enabled
+function partnersEnabled(partners, matches) {
+    console.log("partners see matches as " + matches);
+    for (let i = 0; i < matches.length; i++) {
+        if (partners[matches[i]]) {
+            return true;
+        }
+    }
+    return false;
+}
+
 // main processing behavior
-async function process_get_result(last_domain) {
+async function process_get_result(last_domain, partners) {
     let current_url = window.location.href;
     let current_domain = (new URL(current_url));
     let current_domain_stripped = current_domain.hostname.replace('www.','');
     console.log("currently on " + current_domain_stripped);
+    check_domain(current_domain_stripped, String(current_domain), last_domain, partners);
+}
 
-    let const_match = check_domain(current_domain_stripped, last_domain);
-    console.log(const_match);
-    if (const_match != null) {
+function process_matches(current_domain_stripped, matches, partners) {
+    console.log("matches " + matches);
+    if (matches != null && partnersEnabled(partners, matches)) {
         let price = getHighestPrice(); // TODO: ADD TO DIALOG
         console.log()
-        if (const_match.includes("Amazon")) {
+        if (matches.includes("Amazon")) {
             console.log("popup ples")
             show_amazon_popup();
         } else {
-            show_general_popup(const_match);
+            show_general_popup(matches);
         }
     }
 

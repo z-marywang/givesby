@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head><title>SpendNShare</title>
+<head><title></title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/cover/">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="options.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-      <div class="row space">
-        <div class="col-md-4">
-            <h3 class="masthead-brand justify-content-center">SpendNShare</h3>
-        </div>
-    </div>
-    <div class="row space">
-        <div class="col-md-4">
-            <div class="form-check">
-                <form>
-                    <input type="radio" id="sample_choice" name="source" value="Sample">
-                    <label for="sample">Sample</label><br>
-                    <br><br>
-                    <input type="button" id="submitit" value="Submit">
-                    <input type="button" id="resetit" value="Reset">
-                </form>
+    <div class="container">
+        <div class="column">
+            <div class="row-md text-center">
+                <!-- <img class="d-block mx-auto mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+                <h1 class="display-5 fw-bold">SpendNShare</h1>
+                <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">Easily get reminders to ensure that your money goes further. Make purchases and donations at once, leveraging our partners to support important charities for social and economic justice. Choose from our different partners below.</p>
+                <!-- <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+                </div> -->
                 </div>
             </div>
-    </div>
-    <div class="row">
-        <div class="col-md-4 text-center" id="status"></div>
+            <div class="row-md">
+                    <div class="form-group">
+                        <form>
+                            <input type="checkbox" id="Amazon" name="source" value="Amazon">
+                            <label for="sample">Amazon</label><br>
+                            <input type="checkbox" id="Altruisto" name="source" value="Altruisto">
+                            <label for="sample">Altruisto</label><br>
+                            <input type="checkbox" id="GivingAssistant" name="source" value="GivingAssistant">
+                            <label for="sample">Giving Assistant</label><br>
+                            <input type="checkbox" id="GoodShop" name="source" value="GoodShop">
+                            <label for="sample">Good Shop</label><br>
+                            <br>
+                            <input type="button" id="submitit" value="Submit">
+                            <input type="button" id="resetit" value="Reset">
+                        </form>
+                    </div>
+            </div>
+            <div class="row-sm"></div>
+        </div>
     </div>
 </div>
-<!-- <script src="options.js"></script> -->
+<script src="options.js"></script>
 </body>
 </html>

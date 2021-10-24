@@ -5,7 +5,7 @@
     "manifest_version": 2,
     "options_ui": {
       "page": "options.html",
-      "open_in_tab": true
+      "open_in_tab": false
     },
     "minimum_chrome_version": "46",
     "content_scripts": [
