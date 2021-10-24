@@ -1,9 +1,9 @@
 // check if the current domain merits generating an alert
 async function check_domain(current_domain_stripped, current_domain, last_domain, partners) {
-    console.log("Comparing " + current_domain + " and " + last_domain);
-    if (current_domain == last_domain) {
+    console.log("Comparing " + current_domain_stripped + " and " + last_domain);
+    if (current_domain_stripped == last_domain) {
         console.log("Same domain!")
-        //return null;
+        return null;
     }
 
     let smile_reg = new RegExp("smile.amazon.com");
@@ -51,8 +51,8 @@ function getHighestPrice() {
                 max = currPrice;
             }
         }
-        console.log(max)
-        console.log("You could donate up to $" + (max * 0.20).toFixed(2));
+        // console.log(max)
+        // console.log("You could donate up to $" + (max * 0.20).toFixed(2));
         return max * 0.20;
     }
 }
@@ -95,6 +95,7 @@ async function process_get_result(last_domain, partners) {
     let current_domain_stripped = current_domain.hostname.replace('www.','');
     console.log("currently on " + current_domain_stripped);
     check_domain(current_domain_stripped, String(current_domain), last_domain, partners);
+    set_last_domain(current_domain_stripped);
 }
 
 function process_matches(current_domain_stripped, matches, partners) {
