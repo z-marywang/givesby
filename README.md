@@ -6,7 +6,7 @@ Meet givesby, the helpful reminder extension to help us be more ethical consumer
 - [Giving Assistant](https://givingassistant.org/): Another extension for donation coupon codes.
 - [Goodshop](https://www.goodshop.com/): A better search engine for accumulating donations as you shop.
 
-Make charity a seemless part of your shopping experience, and be empowered to give back as you spend.
+Make charity a seamless part of your shopping experience, and be empowered to give back as you spend.
 
 ## Instructions
 1. Enable [developer mode](https://developer.chrome.com/docs/extensions/mv3/faq/#:~:text=You%20can%20start%20by%20turning,a%20packaged%20extension%2C%20and%20more.) for Chrome Extensions
