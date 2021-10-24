@@ -2,6 +2,7 @@
     font-size: 20px;
     margin: 14px;
     float: left;
+    width: fit-content;
 }
 
 .header_container {
@@ -14,6 +15,8 @@
 }
 
 .dialog_mine {
+    all: unset;
+    background-color: white;
     position: absolute;
     right: 20px;
     top: 20px;
@@ -28,7 +31,7 @@
 }
 
 .smile_button {
-border-width:  unset;
+  border-style: solid;
   background-color: #4CAF50;
   border-color: #4CAF50;
   border-radius: 4px;
@@ -38,7 +41,6 @@ border-width:  unset;
   text-decoration: none;
   display: inline-block;
   font-size: 18px;
-  transition-duration: 0.4s;
 }
 
 .smile_button:hover {
@@ -54,8 +56,15 @@ border-width:  unset;
     float: right;
     overflow: hidden;
     margin: 14px;
+    background-color: white;
+    border: none;
+    color: black;
 }
 
 .button_container {
     text-align: center;
+}
+
+.h_line {
+  margin: 0;
 }

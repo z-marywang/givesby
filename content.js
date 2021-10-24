@@ -144,8 +144,24 @@ function show_amazon_popup() {
 
 // Show other popup
 function show_general_popup(sites) {
-    // TODO: make custom popup
-    alert("Yay donations");
+    const css_url = chrome.runtime.getURL('./styles.css')
+
+    fetch(css_url)
+    .then(response => response.text())
+    .then(text => document.head.innerHTML += '<style>' + text + '</style>');
+
+    const url = chrome.runtime.getURL("./general_dialog.html")
+
+    fetch(url)
+    .then(response => response.text())
+    .then(html => {
+        document.body.innerHTML += html;
+        var dialog = document.querySelector("dialog")
+        dialog.querySelector("button").addEventListener("click", function() {
+            dialog.close()
+        })
+        dialog.showModal()
+    });
 }
 
 get_last_domain();
