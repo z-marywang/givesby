@@ -1,8 +1,15 @@
-.header {
+.header_mine {
     font-size: 20px;
     margin: 14px;
+    margin-left: 0px;
     float: left;
     width: fit-content;
+}
+
+.big_child {
+  overflow: hidden;
+  /*float: right;
+  width: fit-content;*/
 }
 
 .header_container {

@@ -138,7 +138,8 @@ function show_amazon_popup() {
         newurl = window.location.href.replace('//www.', '//smile.')
         smileButton.setAttribute('onclick', "window.location='"+newurl+"';")
         dialog.querySelector("button").addEventListener("click", function() {
-            dialog.close()
+            dialog.close();
+            document.getElementById("the_dialog").remove();
         })
         dialog.showModal()
     });
@@ -172,7 +173,8 @@ function show_general_popup(sites) {
             document.getElementById("altruisto").remove();
         }
         dialog.querySelector("button").addEventListener("click", function() {
-            dialog.close()
+            dialog.close();
+            document.getElementById("the_dialog").remove();
         })
         dialog.showModal()
     });
