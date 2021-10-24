@@ -61,7 +61,10 @@ async function process_get_result(last_domain) {
 // Amazon popup
 function show_amazon_popup() {
     // TODO: make custom popup
-    alert("Amazon bad");
+    // alert("Amazon bad");
+    // chrome.tabs.create({url: "popup.html"});
+
+    chrome.runtime.sendMessage("Amazon");
 }
 
 // Show other popup
