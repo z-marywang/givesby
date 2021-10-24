@@ -1,6 +1,11 @@
 .header {
     font-size: 20px;
     margin: 14px;
+    float: left;
+}
+
+.header_container {
+    overflow: hidden;
 }
 
 .normal{
@@ -42,6 +47,13 @@ border-width:  unset;
 
 .smile_button:select {
   border-color: #4CAF50;
+}
+
+.close_button {
+    text-align: center;
+    float: right;
+    overflow: hidden;
+    margin: 14px;
 }
 
 .button_container {
