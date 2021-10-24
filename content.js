@@ -115,12 +115,6 @@ function process_matches(current_domain_stripped, matches, partners) {
 
 // Amazon popup
 function show_amazon_popup() {
-    // TODO: make custom popup
-    // alert("Amazon bad");
-    // chrome.tabs.create({url: "popup.html"});
-
-    // chrome.runtime.sendMessage("Amazon");
-
     const css_url = chrome.runtime.getURL('./styles.css')
     const url = chrome.runtime.getURL("./dialog.html")
 
