@@ -10,7 +10,8 @@ async function check_domain(current_domain_stripped, current_domain, last_domain
     let amazon_reg = new RegExp("amazon.com");
     if (current_domain.match(amazon_reg) && !current_domain.match(smile_reg)) {
         console.log("Ssmile")
-        return ["Amazon"];
+        process_matches(current_domain_stripped, ["Amazon"], partners);
+        return null;
     }
 
     // Check for matches in supporting site lists
