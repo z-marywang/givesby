@@ -12,7 +12,7 @@ Make charity a seemless part of your shopping experience, and be empowered to gi
 1. Enable [developer mode](https://developer.chrome.com/docs/extensions/mv3/faq/#:~:text=You%20can%20start%20by%20turning,a%20packaged%20extension%2C%20and%20more.) for Chrome Extensions
 2. Clone the repository
 ```
-git clone git@github.com:z-marywang/SpendNShare.git
+git@github.com:z-marywang/givesby.git
 ```
 3. Load the repository as an unpacked extension
 4. Begin shopping!
