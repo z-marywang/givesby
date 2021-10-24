@@ -19,10 +19,11 @@
       }
     ],
     "browser_action": {
-      "default_title": "SpendnShare"
+      "default_title": "SpendNShare"
     },
     "background": {
-      "scripts": ["background.js"]
+      "scripts": ["background.js"],
+      "persistent": false
     },
     "permissions": ["storage"],
     "web_accessible_resources": [

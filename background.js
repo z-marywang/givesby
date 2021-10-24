@@ -7,13 +7,17 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     //   // sendResponse({url: });
     // }
     console.log("About to display popup");
-    chrome.notifications.create('NOTFICATION_ID', {
-      type: 'basic',
-      iconUrl: 'black.jpeg',
-      title: 'notification title',
-      message: 'notification message',
-      priority: 2
-    });
+    // chrome.notifications.create('NOTFICATION_ID', {
+    //   type: 'basic',
+    //   iconUrl: 'black.jpeg',
+    //   title: 'notification title',
+    //   message: 'notification message',
+    //   priority: 2
+    // });
+    // chrome.action.setPopup({popup: 'popup.html'});
+    // chrome.tabs.create({url:"popup.html"});
+    window.open("popup.html", "extension_popup", "width=300,height=400,status=no,scrollbars=no,resizable=no");
+
 
   });
 
