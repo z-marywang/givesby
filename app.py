@@ -17,7 +17,5 @@ limiter = Limiter(
 def index(path):
     return redirect("https://github.com/z-marywang/SpendNShare", code=302)
 
-
-setup()
 app.run('0.0.0.0', 80)
 
