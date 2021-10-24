@@ -22,6 +22,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   });
 
 chrome.browserAction.onClicked.addListener(function (tab) {
-    chrome.browserAction.setBadgeText({text: "clicked"});
+    chrome.browserAction.setBadgeText({text: ""});
     // chrome.tabs.create({url: window.clue.html});
 });
