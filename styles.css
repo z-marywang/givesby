@@ -51,6 +51,27 @@
   border-color: #4CAF50;
 }
 
+.general_button {
+  border-style: solid;
+  background-color: #4CAF50;
+  border-color: #4CAF50;
+  border-radius: 4px;
+  color: white;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+}
+
+.general_button:hover {
+  background-color: #7ddb82;
+}
+
+.general_button:select {
+  border-color: #4CAF50;
+}
+
 .close_button {
     text-align: center;
     float: right;
@@ -64,6 +85,7 @@
 .button_container {
     text-align: center;
 }
+
 
 .h_line {
   margin: 0;

@@ -149,6 +149,8 @@ function show_amazon_popup() {
 function show_general_popup(sites) {
     const css_url = chrome.runtime.getURL('./styles.css')
 
+    console.log(sites);
+
     fetch(css_url)
     .then(response => response.text())
     .then(text => document.head.innerHTML += '<style>' + text + '</style>');
@@ -159,7 +161,16 @@ function show_general_popup(sites) {
     .then(response => response.text())
     .then(html => {
         document.body.innerHTML += html;
-        var dialog = document.querySelector("dialog")
+        var dialog = document.querySelector("dialog");
+        if (!sites.includes("GivingAssistant")) {
+            document.getElementById("giving assistant").remove();
+        }
+        if (!sites.includes("GoodShop")) {
+            document.getElementById("goodshop").remove();
+        }
+        if (!sites.includes("Altruisto")) {
+            document.getElementById("altruisto").remove();
+        }
         dialog.querySelector("button").addEventListener("click", function() {
             dialog.close()
         })
