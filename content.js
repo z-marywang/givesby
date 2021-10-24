@@ -14,7 +14,28 @@ function check_domain(current_domain, last_domain) {
     }
 
     // Check for matches in supporting site lists
+    // import * as data from "./urls.json";
+    // const {urls_json} = data;
 
+    const url = chrome.runtime.getURL("./urls.json")
+
+    fetch(url)
+    .then(response => {
+       return response.json();
+    }).then(
+        urls_json => {
+            if (urls_json.hasOwnProperty(current_domain)) {
+                console.log("url match!");
+                let matches = urls_json[current_domain];
+                console.log(matches);
+                return matches;
+            } else {
+                console.log("no url match")
+            }
+        });
+
+    console.log("the end is nigh");
+    
     return null;
 }
 
