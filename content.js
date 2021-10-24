@@ -122,61 +122,60 @@ function show_amazon_popup() {
     // chrome.runtime.sendMessage("Amazon");
 
     const css_url = chrome.runtime.getURL('./styles.css')
+    const url = chrome.runtime.getURL("./dialog.html")
 
     fetch(css_url)
     .then(response => response.text())
-    .then(text => document.head.innerHTML += '<style>' + text + '</style>');
-
-    const url = chrome.runtime.getURL("./dialog.html")
-
-    fetch(url)
-    .then(response => response.text())
-    .then(html => {
-        document.body.innerHTML += html;
-        var dialog = document.querySelector("dialog")
-        smileButton = document.getElementsByClassName("smile_button")[0];
-        newurl = window.location.href.replace('//www.', '//smile.')
-        smileButton.setAttribute('onclick', "window.location='"+newurl+"';")
-        dialog.querySelector("button").addEventListener("click", function() {
-            dialog.close();
-            document.getElementById("the_dialog").remove();
-        })
-        dialog.showModal()
-    });
-    
+    .then(text => document.head.innerHTML += '<style>' + text + '</style>')
+    .then(() => {
+        fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            document.body.innerHTML += html;
+            var dialog = document.querySelector("dialog")
+            smileButton = document.getElementsByClassName("smile_button")[0];
+            newurl = window.location.href.replace('//www.', '//smile.')
+            smileButton.setAttribute('onclick', "window.location='"+newurl+"';")
+            dialog.querySelector("button").addEventListener("click", function() {
+                dialog.close();
+                document.getElementById("the_dialog").remove();
+            })
+            dialog.showModal()
+        });
+    });    
 }
 
 // Show other popup
 function show_general_popup(sites) {
     const css_url = chrome.runtime.getURL('./styles.css')
+    const url = chrome.runtime.getURL("./general_dialog.html")
 
     console.log(sites);
 
     fetch(css_url)
     .then(response => response.text())
-    .then(text => document.head.innerHTML += '<style>' + text + '</style>');
-
-    const url = chrome.runtime.getURL("./general_dialog.html")
-
-    fetch(url)
-    .then(response => response.text())
-    .then(html => {
-        document.body.innerHTML += html;
-        var dialog = document.querySelector("dialog");
-        if (!sites.includes("GivingAssistant")) {
-            document.getElementById("giving assistant").remove();
-        }
-        if (!sites.includes("GoodShop")) {
-            document.getElementById("goodshop").remove();
-        }
-        if (!sites.includes("Altruisto")) {
-            document.getElementById("altruisto").remove();
-        }
-        dialog.querySelector("button").addEventListener("click", function() {
-            dialog.close();
-            document.getElementById("the_dialog").remove();
-        })
-        dialog.showModal()
+    .then(text => document.head.innerHTML += '<style>' + text + '</style>')
+    .then(() => {
+        fetch(url)
+        .then(response => response.text())
+        .then(html => {
+            document.body.innerHTML += html;
+            var dialog = document.querySelector("dialog");
+            if (!sites.includes("GivingAssistant")) {
+                document.getElementById("giving assistant").remove();
+            }
+            if (!sites.includes("GoodShop")) {
+                document.getElementById("goodshop").remove();
+            }
+            if (!sites.includes("Altruisto")) {
+                document.getElementById("altruisto").remove();
+            }
+            dialog.querySelector("button").addEventListener("click", function() {
+                dialog.close();
+                document.getElementById("the_dialog").remove();
+            })
+            dialog.showModal()
+        });
     });
 }
 
