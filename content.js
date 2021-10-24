@@ -134,6 +134,9 @@ function show_amazon_popup() {
     .then(html => {
         document.body.innerHTML += html;
         var dialog = document.querySelector("dialog")
+        smileButton = document.getElementsByClassName("smile_button")[0];
+        newurl = window.location.href.replace('//www.', '//smile.')
+        smileButton.setAttribute('onclick', "window.location='"+newurl+"';")
         dialog.querySelector("button").addEventListener("click", function() {
             dialog.close()
         })
