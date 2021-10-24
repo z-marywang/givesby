@@ -39,6 +39,24 @@ function check_domain(current_domain, last_domain) {
     return null;
 }
 
+// returns the highest price found on the page. Only works with $
+function getHighestPrice() {
+    const re = new RegExp(/\$(\d)+[.,](\d\d)/g);
+    const matches = document.documentElement.innerHTML.match(re);
+    if (matches != null) {
+        let max = 0.0;
+        for (let i = 0; i < matches.length; i++) {
+            let currPrice = parseFloat(matches[i].replace("$", ""));
+            if (currPrice > max) {
+                max = currPrice;
+            }
+        }
+        console.log(max)
+        console.log("You could donate up to $" + (max * 0.20).toFixed(2));
+        return max * 0.20;
+    }
+}
+
 // returns the last visited domain
 async function get_last_domain() {
     chrome.storage.local.get({
@@ -68,6 +86,8 @@ async function process_get_result(last_domain) {
     let const_match = check_domain(current_domain_stripped, last_domain);
     console.log(const_match);
     if (const_match != null) {
+        let price = getHighestPrice(); // TODO: ADD TO DIALOG
+        console.log()
         if (const_match.includes("Amazon")) {
             console.log("popup ples")
             show_amazon_popup();

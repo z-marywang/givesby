@@ -8,9 +8,13 @@ giving = listify("givingassistant_urls.txt")
 goodshop = listify("goodshop_urls.txt")
 altruisto = listify("altruisto_urls.txt")
 
-url_sites = {"https://givingassistant.org": giving,
-             "https://goodshop.com": goodshop,
-             "https://altruisto.com": altruisto,
+# url_sites = {"https://givingassistant.org": giving,
+#              "https://goodshop.com": goodshop,
+#              "https://altruisto.com": altruisto,
+#     }
+url_sites = {"GivingAssistant": giving,
+             "GoodShop": goodshop,
+             "Altruisto": altruisto,
     }
 
 all_urls = set()
