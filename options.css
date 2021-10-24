@@ -27,7 +27,7 @@ a:hover {
 html,
 body {
   height: 100%;
-  background-color: #333;
+  background-color: #4CAF50;
 }
 
 body {
@@ -39,7 +39,7 @@ body {
 }
 
 .cover-container {
-  max-width: 42em;
+  max-width: fit-content;
 }
 
 
@@ -58,7 +58,7 @@ body {
   padding: .25rem 0;
   font-weight: 700;
   color: rgba(255, 255, 255, .5);
-  background-color: transparent;
+  background-color: #55B859;
   border-bottom: .25rem solid transparent;
 }
 
@@ -113,4 +113,12 @@ body {
 .mastfoot {
   color: rgba(255, 255, 255, .5);
   font-size: 0.7em;
+}
+
+/*
+ * Added by Mav
+ */
+.big-checkbox {
+  width: 18px;
+  height: 18px;
 }
