@@ -90,3 +90,11 @@
 .h_line {
   margin: 0;
 }
+
+.logo {
+  float: left;
+  width: 24px;
+  height: 24px;
+  margin: 14px;
+  width: fit-content;
+}
